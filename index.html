@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Socket.IO Client</title>
+</head>
+<body>
+  <h1>Socket.IO Client</h1>
+  <ul id="messages"></ul>
+
+  <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+  <script>
+    const socket = io('http://localhost:4500'); // Connect to local server
+      
+let data ={
+    email:'raghav@gmail.com'
+}
+
+socket.emit('on-user-login',data)
+
+  // let data1 ={
+  //   room: "680f172823b316f29c12e263", 
+  //   author: '678791a23a326d2432e7f46c', 
+  //   text: 'password',
+  //   type: 'text',
+  //   seen: 'sent',
+  //   uri: 'kkii',
+  //   height: 90,
+  //   width: 50,
+  //   mimeType: 'ii',
+  //   name: 'jk',
+  //   size: 50
+  // }
+
+  // socket.emit('user-chat',data1)
+
+    socket.on('new-order-recived', (msg) => {
+        console.log("new-order-recived => ",msg)
+    });
+
+  </script>
+</body>
+</html>
